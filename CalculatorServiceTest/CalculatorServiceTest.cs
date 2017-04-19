@@ -1,4 +1,6 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.ServiceModel;
+using NUnit.Framework;
 
 namespace CalculatorServiceTest
 {
@@ -56,8 +58,7 @@ namespace CalculatorServiceTest
         {
             using (var client = new ServiceReference.CalculatorServiceClient(HTTP_ENDPOINT_NAME))
             {
-                var division = client.Divide(2, 0);
-
+                Assert.Throws(typeof(FaultException<ArgumentException>), () => client.Divide(2, 0)); 
             }
         }
     }

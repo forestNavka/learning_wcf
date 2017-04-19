@@ -1,11 +1,15 @@
-﻿using NUnit.Framework;
+﻿using System;
+using System.ServiceModel;
+using NUnit.Framework;
 
 namespace CalculatorServiceTest
 {
     [TestFixture]
     public class CalculatorTcpServiceTest
     {
-        private const string TCP_ENDPOINT_NAME = "NetTcpBinding_ICalculatorService";        [Test]
+        private const string TCP_ENDPOINT_NAME = "NetTcpBinding_ICalculatorService";
+
+        [Test]
         public void AddTest()
         {
             using (var client = new ServiceReference.CalculatorServiceClient(TCP_ENDPOINT_NAME))
@@ -54,8 +58,7 @@ namespace CalculatorServiceTest
         {
             using (var client = new ServiceReference.CalculatorServiceClient(TCP_ENDPOINT_NAME))
             {
-                var division = client.Divide(2, 0);
-
+                Assert.Throws(typeof(FaultException<ArgumentException>), () => client.Divide(2, 0));
             }
         }
     }

@@ -1,4 +1,5 @@
-﻿using System.ServiceModel;
+﻿using System;
+using System.ServiceModel;
 
 namespace CalculatorService
 {
@@ -15,6 +16,7 @@ namespace CalculatorService
         int Multiply(int a, int b);
 
         [OperationContract]
+        [FaultContract(typeof(ArgumentException))]
         double Divide(int a, int b);
     }
 }

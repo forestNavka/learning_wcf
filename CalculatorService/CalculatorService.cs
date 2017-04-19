@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ServiceModel;
 
 namespace CalculatorService
 {
@@ -21,7 +22,7 @@ namespace CalculatorService
 
         public double Divide(int a, int b)
         {
-            if (b == 0) throw new ArgumentException("Division by zero occured");
+            if (b == 0) throw new FaultException<ArgumentException>(new ArgumentException(),"Division by zero occured");
             return (double)a / b;
         }
     }

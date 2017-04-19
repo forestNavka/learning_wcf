@@ -33,6 +33,7 @@
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
       <xsd:import schemaLocation="http://localhost/CalculatorService?xsd=xsd0" namespace="http://tempuri.org/" />
       <xsd:import schemaLocation="http://localhost/CalculatorService?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost/CalculatorService?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/System" />
     </xsd:schema>
   </wsdl:types>
   <wsdl:message name="ICalculatorService_Add_InputMessage">
@@ -59,6 +60,9 @@
   <wsdl:message name="ICalculatorService_Divide_OutputMessage">
     <wsdl:part name="parameters" element="tns:DivideResponse" />
   </wsdl:message>
+  <wsdl:message name="ICalculatorService_Divide_ArgumentExceptionFault_FaultMessage">
+    <wsdl:part xmlns:q1="http://schemas.datacontract.org/2004/07/System" name="detail" element="q1:ArgumentException" />
+  </wsdl:message>
   <wsdl:portType name="ICalculatorService">
     <wsdl:operation name="Add">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Add" message="tns:ICalculatorService_Add_InputMessage" />
@@ -75,6 +79,7 @@
     <wsdl:operation name="Divide">
       <wsdl:input wsaw:Action="http://tempuri.org/ICalculatorService/Divide" message="tns:ICalculatorService_Divide_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/ICalculatorService/DivideResponse" message="tns:ICalculatorService_Divide_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://tempuri.org/ICalculatorService/DivideArgumentExceptionFault" name="ArgumentExceptionFault" message="tns:ICalculatorService_Divide_ArgumentExceptionFault_FaultMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_ICalculatorService" type="tns:ICalculatorService">
@@ -114,6 +119,9 @@
       <wsdl:output>
         <soap:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_ICalculatorService" type="tns:ICalculatorService">
@@ -154,6 +162,9 @@
       <wsdl:output>
         <soap12:body use="literal" />
       </wsdl:output>
+      <wsdl:fault name="ArgumentExceptionFault">
+        <soap12:fault use="literal" name="ArgumentExceptionFault" namespace="" />
+      </wsdl:fault>
     </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="CalculatorService">

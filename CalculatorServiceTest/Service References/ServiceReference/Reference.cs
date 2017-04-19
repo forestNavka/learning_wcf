@@ -25,6 +25,7 @@ namespace CalculatorServiceTest.ServiceReference {
         int Multiply(int a, int b);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/ICalculatorService/Divide", ReplyAction="http://tempuri.org/ICalculatorService/DivideResponse")]
+        [System.ServiceModel.FaultContractAttribute(typeof(System.ArgumentException), Action="http://tempuri.org/ICalculatorService/DivideArgumentExceptionFault", Name="ArgumentException", Namespace="http://schemas.datacontract.org/2004/07/System")]
         double Divide(int a, int b);
     }
     
