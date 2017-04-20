@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26403.7
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NorthwindService", "NorthwindService\NorthwindService.csproj", "{BCE74CB5-40C2-4DA0-BD00-8DB0F66A438A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayerContracts", "DataLayerContracts\DataLayerContracts.csproj", "{C03AE95D-679E-49D9-B089-1C47A1C972DF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataLayer", "DataLayer\DataLayer.csproj", "{F663BA6A-C0FC-40DF-B08B-6E57A8126387}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BCE74CB5-40C2-4DA0-BD00-8DB0F66A438A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCE74CB5-40C2-4DA0-BD00-8DB0F66A438A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCE74CB5-40C2-4DA0-BD00-8DB0F66A438A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCE74CB5-40C2-4DA0-BD00-8DB0F66A438A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C03AE95D-679E-49D9-B089-1C47A1C972DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C03AE95D-679E-49D9-B089-1C47A1C972DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C03AE95D-679E-49D9-B089-1C47A1C972DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C03AE95D-679E-49D9-B089-1C47A1C972DF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F663BA6A-C0FC-40DF-B08B-6E57A8126387}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F663BA6A-C0FC-40DF-B08B-6E57A8126387}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F663BA6A-C0FC-40DF-B08B-6E57A8126387}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F663BA6A-C0FC-40DF-B08B-6E57A8126387}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
