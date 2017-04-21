@@ -19,7 +19,7 @@ namespace NorthwindService
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Order, OrderDto>();
+                cfg.CreateMap<Order, OrderDto>().ReverseMap();
                 cfg.CreateMap<Order, OrderDetailDto>();
                 cfg.CreateMap<Order_Detail, ProductDto>();
                 cfg.CreateMap<Product, ProductDto>().ForMember(p => p.UnitPrice, opt => opt.Ignore());
@@ -42,6 +42,16 @@ namespace NorthwindService
             var dto = Mapper.Map<Order, OrderDetailDto>(order);
             dto.ProductsInOrder = order.Order_Details.Select(d => Mapper.Map<ProductDto>(d).Map(d.Product));
             return dto;
+        }
+
+        public int CreateOrder(OrderDto orderDto)
+        {
+            return _ordersRepo.CreateOrder(Mapper.Map<Order>(orderDto));
+        }
+
+        public void UpdateOrder(OrderDto orderDto)
+        {
+            _ordersRepo.Update(Mapper.Map<Order>(orderDto), orderDto.OrderID);
         }
 
         private static OrderStatus SetStatus(DateTime? orderDate, DateTime? shippedDate)

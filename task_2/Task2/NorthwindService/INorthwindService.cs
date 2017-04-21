@@ -12,5 +12,11 @@ namespace NorthwindService
 
         [OperationContract]
         OrderDetailDto GetDetailedOrder(int id);
+
+        [OperationContract]
+        int CreateOrder (OrderDto orderDto);
+
+        [OperationContract]
+        void UpdateOrder(OrderDto orderDto);
     }
 }

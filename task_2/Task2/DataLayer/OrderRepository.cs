@@ -17,5 +17,11 @@ namespace DataLayer
                     .FirstOrDefault();
             }
         }
+
+        public int CreateOrder(Order order)
+        {
+            var newOrder = base.Add(order);
+            return newOrder.OrderID;
+        }
     }
 }

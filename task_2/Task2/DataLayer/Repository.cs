@@ -1,8 +1,7 @@
-﻿using System;
+﻿using DataLayerContracts;
 using System.Collections.Generic;
-using System.Configuration;
+using System.Data.Entity;
 using System.Linq;
-using DataLayerContracts;
 
 namespace DataLayer
 {
@@ -49,8 +48,7 @@ namespace DataLayer
         {
             using (var context = new NorthwindContext())
             {
-                var entityInDb = context.Set<TEntity>().Find(id);
-                entityInDb = entity;
+                context.Entry(entity).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }
