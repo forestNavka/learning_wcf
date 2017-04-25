@@ -3,7 +3,7 @@ using System.Runtime.Serialization;
 
 namespace NorthwindService.DTOs
 {
-    [DataContract]
+    [DataContract(Namespace = "http://epm.com/Northwind")]
     [KnownType(typeof(OrderDetailDto))]
     public class OrderDto
     {

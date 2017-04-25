@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" Protocol="mex" SourceId="1" />
   </MetadataSources>
   <Metadata>
+    <MetadataFile FileName="Northwind1.wsdl" MetadataType="Wsdl" ID="e6d34d2c-f686-4655-b6b7-c994e27551a1" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
     <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="89f3ab2e-3464-4688-bc57-87267389804a" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
-    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="f6236e1f-d954-4c8a-8787-2202079b4005" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
+    <MetadataFile FileName="Northwind1.xsd" MetadataType="Schema" ID="ffa2b750-c696-4e98-ac45-aeda295f5893" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
     <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="8006177a-9a71-4dc0-84a5-158c99711ca2" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
-    <MetadataFile FileName="NorthwindService.DTOs.xsd" MetadataType="Schema" ID="366325ea-64c6-483e-aa57-f6197c4dd957" SourceId="1" SourceUrl="http://localhost:8733/Design_Time_Addresses/NorthwindService/Service1/mex" />
   </Metadata>
   <Extensions>
     <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />

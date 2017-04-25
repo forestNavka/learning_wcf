@@ -15,7 +15,7 @@ namespace TestClient.NorthwindServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDto", Namespace="http://schemas.datacontract.org/2004/07/NorthwindService.DTOs")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDto", Namespace="http://epm.com/Northwind")]
     [System.SerializableAttribute()]
     [System.Runtime.Serialization.KnownTypeAttribute(typeof(TestClient.NorthwindServiceReference.OrderDetailDto))]
     public partial class OrderDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
@@ -285,7 +285,7 @@ namespace TestClient.NorthwindServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDetailDto", Namespace="http://schemas.datacontract.org/2004/07/NorthwindService.DTOs")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderDetailDto", Namespace="http://epm.com/Northwind")]
     [System.SerializableAttribute()]
     public partial class OrderDetailDto : TestClient.NorthwindServiceReference.OrderDto {
         
@@ -307,7 +307,7 @@ namespace TestClient.NorthwindServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="OrderStatus", Namespace="http://schemas.datacontract.org/2004/07/NorthwindService.DTOs")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="OrderStatus", Namespace="http://epm.com/Northwind")]
     public enum OrderStatus : int {
         
         [System.Runtime.Serialization.EnumMemberAttribute()]
@@ -322,7 +322,7 @@ namespace TestClient.NorthwindServiceReference {
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Runtime.Serialization", "4.0.0.0")]
-    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDto", Namespace="http://schemas.datacontract.org/2004/07/NorthwindService.DTOs")]
+    [System.Runtime.Serialization.DataContractAttribute(Name="ProductDto", Namespace="http://epm.com/Northwind")]
     [System.SerializableAttribute()]
     public partial class ProductDto : object, System.Runtime.Serialization.IExtensibleDataObject, System.ComponentModel.INotifyPropertyChanged {
         
@@ -542,43 +542,43 @@ namespace TestClient.NorthwindServiceReference {
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    [System.ServiceModel.ServiceContractAttribute(ConfigurationName="NorthwindServiceReference.INorthwindService")]
+    [System.ServiceModel.ServiceContractAttribute(Namespace="http://epm.com/Northwind", ConfigurationName="NorthwindServiceReference.INorthwindService")]
     public interface INorthwindService {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/GetOrders", ReplyAction="http://tempuri.org/INorthwindService/GetOrdersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/GetOrders", ReplyAction="http://epm.com/Northwind/INorthwindService/GetOrdersResponse")]
         TestClient.NorthwindServiceReference.OrderDto[] GetOrders();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/GetOrders", ReplyAction="http://tempuri.org/INorthwindService/GetOrdersResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/GetOrders", ReplyAction="http://epm.com/Northwind/INorthwindService/GetOrdersResponse")]
         System.Threading.Tasks.Task<TestClient.NorthwindServiceReference.OrderDto[]> GetOrdersAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/GetDetailedOrder", ReplyAction="http://tempuri.org/INorthwindService/GetDetailedOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/GetDetailedOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/GetDetailedOrderResponse")]
         TestClient.NorthwindServiceReference.OrderDetailDto GetDetailedOrder(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/GetDetailedOrder", ReplyAction="http://tempuri.org/INorthwindService/GetDetailedOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/GetDetailedOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/GetDetailedOrderResponse")]
         System.Threading.Tasks.Task<TestClient.NorthwindServiceReference.OrderDetailDto> GetDetailedOrderAsync(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/CreateOrder", ReplyAction="http://tempuri.org/INorthwindService/CreateOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/CreateOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/CreateOrderResponse")]
         int CreateOrder(TestClient.NorthwindServiceReference.OrderDto orderDto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/CreateOrder", ReplyAction="http://tempuri.org/INorthwindService/CreateOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/CreateOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/CreateOrderResponse")]
         System.Threading.Tasks.Task<int> CreateOrderAsync(TestClient.NorthwindServiceReference.OrderDto orderDto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/UpdateOrder", ReplyAction="http://tempuri.org/INorthwindService/UpdateOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/UpdateOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/UpdateOrderResponse")]
         void UpdateOrder(TestClient.NorthwindServiceReference.OrderDto orderDto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/UpdateOrder", ReplyAction="http://tempuri.org/INorthwindService/UpdateOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/UpdateOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/UpdateOrderResponse")]
         System.Threading.Tasks.Task UpdateOrderAsync(TestClient.NorthwindServiceReference.OrderDto orderDto);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/SetStatus", ReplyAction="http://tempuri.org/INorthwindService/SetStatusResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/SetStatus", ReplyAction="http://epm.com/Northwind/INorthwindService/SetStatusResponse")]
         void SetStatus(int id, TestClient.NorthwindServiceReference.OrderStatus status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/SetStatus", ReplyAction="http://tempuri.org/INorthwindService/SetStatusResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/SetStatus", ReplyAction="http://epm.com/Northwind/INorthwindService/SetStatusResponse")]
         System.Threading.Tasks.Task SetStatusAsync(int id, TestClient.NorthwindServiceReference.OrderStatus status);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/DeleteOrder", ReplyAction="http://tempuri.org/INorthwindService/DeleteOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/DeleteOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/DeleteOrderResponse")]
         void DeleteOrder(int id);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/INorthwindService/DeleteOrder", ReplyAction="http://tempuri.org/INorthwindService/DeleteOrderResponse")]
+        [System.ServiceModel.OperationContractAttribute(Action="http://epm.com/Northwind/INorthwindService/DeleteOrder", ReplyAction="http://epm.com/Northwind/INorthwindService/DeleteOrderResponse")]
         System.Threading.Tasks.Task DeleteOrderAsync(int id);
     }
     

@@ -2,7 +2,7 @@
 
 namespace NorthwindService.DTOs
 {
-    [DataContract]
+    [DataContract(Namespace = "http://epm.com/Northwind")]
     public class ProductDto
     {
         [DataMember]
