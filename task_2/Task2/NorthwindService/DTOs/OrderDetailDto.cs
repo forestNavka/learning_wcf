@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace NorthwindService.DTOs
 {
-    [DataContract]
+    [DataContract(Namespace = "http://epm.com/Northwind")]
     public class OrderDetailDto : OrderDto
     {
         [DataMember]

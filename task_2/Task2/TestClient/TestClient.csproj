@@ -61,13 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="Connected Services\NorthwindServiceReference\NorthwindService.DTOs.xsd">
+    <None Include="Connected Services\NorthwindServiceReference\Northwind1.wsdl" />
+    <None Include="Connected Services\NorthwindServiceReference\Northwind1.xsd">
       <SubType>Designer</SubType>
     </None>
     <None Include="Connected Services\NorthwindServiceReference\service.wsdl" />
-    <None Include="Connected Services\NorthwindServiceReference\service.xsd">
-      <SubType>Designer</SubType>
-    </None>
     <None Include="Connected Services\NorthwindServiceReference\service1.xsd">
       <SubType>Designer</SubType>
     </None>

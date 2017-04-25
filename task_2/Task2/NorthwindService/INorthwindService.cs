@@ -4,7 +4,7 @@ using System.ServiceModel;
 
 namespace NorthwindService
 {
-    [ServiceContract]
+    [ServiceContract(Namespace = "http://epm.com/Northwind")]
     public interface INorthwindService
     {
         [OperationContract]

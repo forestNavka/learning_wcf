@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using NorthwindService.DTOs;
+﻿using AutoMapper;
+using DataLayer;
 using DataLayerContracts;
 using DataLayerContracts.Models;
-using AutoMapper;
-using System.Linq;
 using Microsoft.Practices.Unity;
-using DataLayer;
+using NorthwindService.DTOs;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace NorthwindService
 {
