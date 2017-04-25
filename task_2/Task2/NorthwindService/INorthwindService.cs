@@ -18,5 +18,11 @@ namespace NorthwindService
 
         [OperationContract]
         void UpdateOrder(OrderDto orderDto);
+
+        [OperationContract]
+        void SetStatus(int id, OrderStatus status);
+
+        [OperationContract]
+        void DeleteOrder(int id);
     }
 }

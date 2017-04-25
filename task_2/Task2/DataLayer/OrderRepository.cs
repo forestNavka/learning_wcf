@@ -1,4 +1,5 @@
-﻿using DataLayerContracts;
+﻿using System.Collections.Generic;
+using DataLayerContracts;
 using DataLayerContracts.Models;
 using System.Data.Entity;
 using System.Linq;
@@ -18,10 +19,15 @@ namespace DataLayer
             }
         }
 
-        public int CreateOrder(Order order)
+        public int Create(Order order)
         {
             var newOrder = base.Add(order);
             return newOrder.OrderID;
+        }
+
+        public void UpdateOrderExcludingProperties(Order order, IEnumerable<string>propertyNames)
+        {
+            base.UpdateExcludingProperties(order, order.OrderID, propertyNames);
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using DataLayerContracts;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 
 namespace DataLayer
@@ -44,12 +45,34 @@ namespace DataLayer
             }
         }
 
-        public void Update(TEntity entity, int id)
+        public void UpdateExcludingProperties(TEntity entity, int id, IEnumerable<string>propertiesToExclude = null)
         {
             using (var context = new NorthwindContext())
             {
-                context.Entry(entity).State = EntityState.Modified;
+                var entry = context.Entry(entity);
+                entry.State = EntityState.Modified;
+                ExcludeSomeProperties(propertiesToExclude, entry);
                 context.SaveChanges();
+            }
+        }
+
+        public void SetProperty(TEntity entity, string propertyName)
+        {
+            using (var context = new NorthwindContext())
+            {
+                var entry = context.Entry(entity);
+                entry.State = EntityState.Unchanged;
+                entry.Property(propertyName).IsModified = true;
+                context.SaveChanges();
+            }
+        }
+
+        private static void ExcludeSomeProperties(IEnumerable<string> propertiesToExclude, DbEntityEntry<TEntity> entry)
+        {
+            if (propertiesToExclude == null) return;
+            foreach (var property in propertiesToExclude)
+            {
+                entry.Property(property).IsModified = false;
             }
         }
     }

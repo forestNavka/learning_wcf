@@ -1,4 +1,5 @@
-﻿using DataLayerContracts.Models;
+﻿using System.Collections.Generic;
+using DataLayerContracts.Models;
 
 namespace DataLayerContracts
 {
@@ -6,6 +7,8 @@ namespace DataLayerContracts
     {
         Order GetDetailedOrderById(int id);
 
-        int CreateOrder(Order order);
+        int Create(Order order);
+
+        void UpdateOrderExcludingProperties(Order order, IEnumerable<string>propertyNamesToExclude);
     }
 }

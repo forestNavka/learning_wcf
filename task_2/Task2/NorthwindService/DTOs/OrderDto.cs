@@ -4,6 +4,7 @@ using System.Runtime.Serialization;
 namespace NorthwindService.DTOs
 {
     [DataContract]
+    [KnownType(typeof(OrderDetailDto))]
     public class OrderDto
     {
         [DataMember]
@@ -49,6 +50,15 @@ namespace NorthwindService.DTOs
         public string ShipCountry { get; set; }
 
         [DataMember]
-        public OrderStatus Status { get; set; }
+        public OrderStatus Status
+        {
+            get
+            {
+                if (!this.OrderDate.HasValue) return OrderStatus.New;
+                return !this.ShippedDate.HasValue ? OrderStatus.InProgress : OrderStatus.Completed;
+            }
+
+            private set { } //???:(
+        }
     }
 }
