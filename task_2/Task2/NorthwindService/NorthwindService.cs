@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using NorthwindService.DTOs;
 using DataLayerContracts;
 using DataLayerContracts.Models;
@@ -19,7 +20,10 @@ namespace NorthwindService
         {
             Mapper.Initialize(cfg =>
             {
-                cfg.CreateMap<Order, OrderDto>().ReverseMap();
+                cfg.CreateMap<Order, OrderDto>()
+                    .ReverseMap()
+                    .ForMember(o => o.OrderDate, opt => opt.Ignore())
+                    .ForMember(o => o.ShippedDate, opt => opt.Ignore());
                 cfg.CreateMap<Order, OrderDetailDto>();
                 cfg.CreateMap<Order_Detail, ProductDto>();
                 cfg.CreateMap<Product, ProductDto>().ForMember(p => p.UnitPrice, opt => opt.Ignore());
@@ -31,7 +35,6 @@ namespace NorthwindService
             var orders = _ordersRepo.GetAll();
             return orders.Select(order => {
                 var dto = Mapper.Map<OrderDto>(order);
-                dto.Status = SetStatus(dto.OrderDate, dto.ShippedDate);
                 return dto;
                 }).ToList();
         }
@@ -46,18 +49,39 @@ namespace NorthwindService
 
         public int CreateOrder(OrderDto orderDto)
         {
-            return _ordersRepo.CreateOrder(Mapper.Map<Order>(orderDto));
+            return _ordersRepo.Create(Mapper.Map<Order>(orderDto));
         }
 
         public void UpdateOrder(OrderDto orderDto)
         {
-            _ordersRepo.Update(Mapper.Map<Order>(orderDto), orderDto.OrderID);
+            if (orderDto.Status != OrderStatus.New) return;
+            _ordersRepo.UpdateOrderExcludingProperties(Mapper.Map<Order>(orderDto), new[] { nameof(Order.OrderDate), nameof(Order.ShippedDate) });
         }
 
-        private static OrderStatus SetStatus(DateTime? orderDate, DateTime? shippedDate)
+        public void SetStatus(int id, OrderStatus status)
         {
-            if (!orderDate.HasValue) return OrderStatus.New;
-            return !shippedDate.HasValue ? OrderStatus.InProgress : OrderStatus.Completed;
+            var order = _ordersRepo.GetById(id);
+            var dto = Mapper.Map<OrderDto>(order);
+            if (status == OrderStatus.InProgress && dto.Status == OrderStatus.New)
+            {
+                order.OrderDate = DateTime.Now;
+                _ordersRepo.SetProperty(order, nameof(Order.OrderDate));
+                return;
+            }
+            if (status == OrderStatus.Completed && dto.Status == OrderStatus.InProgress)
+            {
+                order.ShippedDate = DateTime.Now;
+                _ordersRepo.SetProperty(order, nameof(Order.ShippedDate));
+                return;
+            }
+            throw new InvalidOperationException("Can't swith from current state to destination");
+        }
+
+        public void DeleteOrder(int id)
+        {
+            var dto = Mapper.Map<OrderDto>(_ordersRepo.GetById(id));
+            if (dto.Status == OrderStatus.Completed) throw new InvalidOperationException("Can't delete completed order");
+            _ordersRepo.Delete(dto.OrderID);
         }
     }
 

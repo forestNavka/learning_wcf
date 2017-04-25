@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace DataLayerContracts
 {
@@ -14,8 +10,10 @@ namespace DataLayerContracts
 
         TEntity Add(TEntity entity);
 
-        void Update(TEntity entity, int id);
+        void UpdateExcludingProperties(TEntity entity, int id, IEnumerable<string> propertiesToExclude);
 
         void Delete(int id);
+
+        void SetProperty(TEntity entity, string propertyName);
     }
 }
